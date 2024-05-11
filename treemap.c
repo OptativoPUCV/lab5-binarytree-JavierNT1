@@ -177,6 +177,9 @@ Pair * nextTreeMap(TreeMap * tree) {
     while(temp->parent != NULL && temp->parent->right == temp){
         temp = temp->parent;
     }
+    
+    if(temp->parent == NULL)
+        return NULL;
 
     tree->current = temp->parent;
     return temp->pair;    
