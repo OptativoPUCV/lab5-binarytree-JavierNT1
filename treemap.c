@@ -169,7 +169,6 @@ Pair * nextTreeMap(TreeMap * tree) {
 
     if(current->right != NULL){
         TreeNode* successor = minimum(current->right);
-        tree->current = successor;
         return successor->pair;
     }
 
@@ -177,10 +176,5 @@ Pair * nextTreeMap(TreeMap * tree) {
     while(temp->parent != NULL && temp->parent->right == temp){
         temp = temp->parent;
     }
-    
-    if(temp->parent == NULL)
-        return NULL;
-
-    tree->current = temp->parent;
-    return temp->pair;    
+    return temp->pair;
 }
