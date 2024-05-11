@@ -169,6 +169,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 
     if(tree->current->right != NULL){
         aux = minimum(tree->current->right);
+        tree->current = aux;
         return aux->pair;
     }
     else{
