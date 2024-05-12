@@ -170,10 +170,8 @@ Pair * upperBound(TreeMap * tree, void* key) {
         }
     }
 
-    if(ub_node != NULL)
-        return ub_node->pair;
 
-    return NULL;
+    return ub_node->pair;
 }
 
 
