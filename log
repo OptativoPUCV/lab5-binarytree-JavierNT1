@@ -153,3 +153,13 @@ Sun 12 May 2024 12:06:18 AM UTC:
  tests:  26|1
 total_score: 60/70
 de7dc75
+Sun 12 May 2024 12:08:51 AM UTC: 
+ treemap.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:164:75: error: ‘Pair’ has no member named ‘pair’
+  164 |             if(ub_pair == NULL || tree->lower_than(aux->pair->key, ub_pair->pair->key) == 0) {
+      |                                                                           ^~
+Compilation failed
+8f2c3db
