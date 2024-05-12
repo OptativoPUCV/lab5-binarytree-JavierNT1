@@ -152,20 +152,23 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    TreeNode* aux = tree->root;
-    Pair* ub_pair = NULL;
+    TreeNode* temp = tree->root;
+    TreeNode* result = NULL;
 
-    while(aux != NULL){
-        if(tree->lower_than(aux->pair->key, key) == 0) {
-            if(ub_pair == NULL || tree->lower_than(aux->pair->key, ub_pair->key) == 1) {
-                ub_pair = aux->pair;
-            }
-            aux = aux->right;
-        } else {
-            aux = aux->left;
+    while(temp != NULL){
+        if(tree->lower_than(key, temp->pair->key) == 1){
+            result = temp;
+            temp = temp->left;
+        } else if(tree->lower_than(key, temp->pair->key) == 0){
+            temp = temp->right;
+        } else{
+            return temp->pair;
         }
     }
-    return ub_pair;
+    if(result != NULL)
+        return result->pair;
+    else
+        return NULL;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
